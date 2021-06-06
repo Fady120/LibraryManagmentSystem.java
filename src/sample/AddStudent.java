@@ -24,7 +24,7 @@ public class AddStudent {
     TextField T3;
     @FXML
     TextField T4;
-   static Stage stage;
+    static Stage stage;
 public  void  start() throws IOException {
     stage=new Stage();
    Parent root = FXMLLoader.load(getClass().getResource("AddStudent.fxml"));
@@ -34,6 +34,7 @@ public  void  start() throws IOException {
 }
     public void Addstudent(ActionEvent actionEvent)
     {
+
         Button B = (Button) actionEvent.getSource();
         String txt= B.getId();
         if(txt.equals("Save"))

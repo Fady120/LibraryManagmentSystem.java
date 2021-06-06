@@ -4,10 +4,15 @@ import com.sun.xml.internal.ws.api.message.Message;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 
 public class AddBook {
@@ -42,6 +47,14 @@ public class AddBook {
     RadioButton R5;
     @FXML
     AnchorPane A1;
+    static Stage stage;
+    public  void  start() throws IOException {
+        stage=new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("AddBook.fxml"));
+        Scene scene=new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
 
     public void NewBook(ActionEvent actionEvent)
@@ -110,7 +123,7 @@ public class AddBook {
            /* String t =T9.getText();
             T9.setText(Book.Search(t,Global.book,Global.c1));
             Just to make sure everything work*/
-            Platform.exit();
+            stage.close();
         }
 
 
