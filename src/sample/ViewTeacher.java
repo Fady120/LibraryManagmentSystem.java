@@ -26,6 +26,7 @@ public class ViewTeacher {
         Parent root = FXMLLoader.load(getClass().getResource("ViewTeacher.fxml"));
         Scene scene=new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("View Teacher");
         stage.show();
     }
     public void Viewteacher(ActionEvent actionEvent)

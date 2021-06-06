@@ -30,6 +30,7 @@ public  void  start() throws IOException {
    Parent root = FXMLLoader.load(getClass().getResource("AddStudent.fxml"));
     Scene scene=new Scene(root);
     stage.setScene(scene);
+    stage.setTitle("Add Student");
     stage.show();
 }
     public void Addstudent(ActionEvent actionEvent)

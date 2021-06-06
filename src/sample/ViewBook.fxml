@@ -7,7 +7,7 @@
 <AnchorPane prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ViewBook">
    <children>
       <Button onAction="#Viewbook" fx:id="Search" layoutX="201.0" layoutY="451.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="198.0" text="Search" />
-      <TextField fx:id="T1" layoutX="189.0" layoutY="41.0" prefHeight="26.0" prefWidth="281.0" />
+      <TextField fx:id="T1" layoutX="189.0" layoutY="41.0" prefHeight="26.0"  prefWidth="281.0" />
       <Label layoutX="91.0" layoutY="46.0" text="Book Name" />
       <TextArea fx:id="TA1" layoutX="51.0" layoutY="122.0" prefHeight="273.0" prefWidth="498.0" />
    </children>

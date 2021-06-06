@@ -27,6 +27,7 @@ public class ViewBook {
         Parent root = FXMLLoader.load(getClass().getResource("ViewBook.fxml"));
         Scene scene=new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("View book");
         stage.show();
     }
     public void Viewbook(ActionEvent actionEvent)

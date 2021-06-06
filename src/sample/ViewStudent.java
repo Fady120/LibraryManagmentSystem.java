@@ -26,6 +26,7 @@ public class ViewStudent {
         Parent root = FXMLLoader.load(getClass().getResource("ViewStudent.fxml"));
         Scene scene=new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("View Student");
         stage.show();
     }
     public void Viewstudent(ActionEvent actionEvent)

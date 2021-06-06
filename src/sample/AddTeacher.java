@@ -31,6 +31,7 @@ public class AddTeacher {
         Parent root = FXMLLoader.load(getClass().getResource("AddTeacher.fxml"));
         Scene scene=new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("Add Teacher");
         stage.show();
     }
     public void Addteacher(ActionEvent actionEvent)
