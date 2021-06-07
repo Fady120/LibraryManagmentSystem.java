@@ -8,7 +8,16 @@ public class Teacher extends Person {
     protected int C_bought = 0;
     protected ArrayList<Book> Borrow = new ArrayList<Book>();
     protected int C_borrow;
+    private String email;
+    private String pass;
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
 
     public ArrayList<Book> getBought() {
         return Bought;

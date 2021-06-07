@@ -11,8 +11,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        FormsConnections formsConnections = new FormsConnections();
-        formsConnections.start();
+        Login login=new Login();
+        login.start();
     }
 
 
