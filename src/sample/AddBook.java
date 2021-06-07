@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 
 
@@ -69,7 +70,8 @@ public class AddBook {
             {
                 for (int i = 0; i < Global.c1; i++) {
                     if (Check.equals(Global.book.get(i).Name)) {
-                        T9.setText("This book is already in your inventory, " + T6.getText() + " copies of it was added succesfully ");
+                        JOptionPane.showMessageDialog(null, "This book is already in your inventory, " + T6.getText() + " copies of it was added succesfully ", "Display Message",
+                                JOptionPane.INFORMATION_MESSAGE);
                         Global.book.get(i).Quantity += Integer.parseInt(T6.getText());
                         Global.Wallet -= (Global.book.get(i).PurchasePrice * Global.book.get(i).Quantity);
                         flag = 1;
@@ -90,10 +92,10 @@ public class AddBook {
                 B.Quantity = Integer.parseInt(T7.getText());
                 B.Publisher = T8.getText();
                 if (R1.isSelected() == true) B.State = 1;
-                else if (R1.isSelected() == true) B.State = 2;
-                else if (R1.isSelected() == true) B.State = 3;
-                if (R1.isSelected() == true) B.Access = 1;
-                else if (R1.isSelected() == true) B.State = 2;
+                else if (R2.isSelected() == true) B.State = 2;
+                else if (R3.isSelected() == true) B.State = 3;
+                if (R4.isSelected() == true) B.Access = 1;
+                else if (R5.isSelected() == true) B.Access = 2;
                 Global.book.add(B);
                 Global.Wallet -= (B.PurchasePrice * B.Quantity);
                 Global.c1++;

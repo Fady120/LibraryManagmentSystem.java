@@ -30,6 +30,5 @@
       <Label layoutX="70.0" layoutY="391.0" text="Publisher" />
       <Button fx:id="Save" layoutX="110.0" layoutY="572.0" mnemonicParsing="false" onAction="#NewBook" prefHeight="26.0" prefWidth="123.0" text="Save" />
       <Button fx:id="Close" layoutX="347.0" layoutY="572.0" mnemonicParsing="false" onAction="#NewBook" prefHeight="26.0" prefWidth="123.0" text="Close" />
-      <TextField fx:id="T9" layoutX="432.0" layoutY="244.0" prefHeight="170.0" prefWidth="149.0" />
    </children>
 </AnchorPane>
