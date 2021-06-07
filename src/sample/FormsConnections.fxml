@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="584.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FormsConnections">
+   <children>
+      <Button onAction="#formconnections" fx:id="AddBook" layoutX="49.0" layoutY="64.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Add Book" />
+      <Button onAction="#formconnections" fx:id="AddStudent" layoutX="379.0" layoutY="64.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Add Student" />
+      <Button onAction="#formconnections" fx:id="AddTeacher" layoutX="50.0" layoutY="119.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Add Teacher" />
+      <Button onAction="#formconnections" fx:id="ViewBook" layoutX="376.0" layoutY="118.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="158.0" text="View Book" />
+      <Button onAction="#formconnections" fx:id="ViewStudent" layoutX="50.0" layoutY="168.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="View Student" />
+      <Button onAction="#formconnections" fx:id="ViewTeacher" layoutX="379.0" layoutY="168.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="View Teacher" />
+      <Button onAction="#formconnections" fx:id="BorrowStudent" layoutX="49.0" layoutY="213.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Borrow Student" />
+      <Button onAction="#formconnections" fx:id="BorrowTeacher" layoutX="381.0" layoutY="213.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Borrow Teacher" />
+      <Button onAction="#formconnections" fx:id="PurchasingStudent" layoutX="49.0" layoutY="266.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Purchasing Student" />
+      <Button onAction="#formconnections" fx:id="PurchasingTeacher" layoutX="384.0" layoutY="266.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Purchasing Teacher" />
+      <Button onAction="#formconnections" fx:id="ReturnBook" layoutX="46.0" layoutY="327.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Return a Book" />
+      <Button onAction="#formconnections" fx:id="Wallet" layoutX="385.0" layoutY="327.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Wallet" />
+      <Button onAction="#formconnections" fx:id="Close" layoutX="221.0" layoutY="432.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="157.0" text="Close" />
+   </children>
+</AnchorPane>
