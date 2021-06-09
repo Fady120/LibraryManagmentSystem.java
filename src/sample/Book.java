@@ -174,19 +174,17 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "Name='" + Name + '\n' +
-                ", AuthorName='" + AuthorName + '\n' +
-                ", PublicationDate='" + PublicationDate + '\n' +
-                ", Price=" + Price +
-                ", RentPrice=" + RentPrice + '\n' +
-                ", PurchasePrice=" + PurchasePrice + '\n' +
-                ", Quantity=" + Quantity + '\n' +
-                ", Publisher='" + Publisher + '\n' +
-                ", Borrow=" + Borrow + '\n' +
-                ", Bought=" + Bought + '\n' +
-                ", State=" + State + '\n' +
-                ", Access=" + Access +
-                '}';
+        return   "Name= " + Name + '\n' +
+                "AuthorName= " + AuthorName + '\n' +
+                "PublicationDate= " + PublicationDate + '\n' +
+                "Price= " + Price + '\n' +
+                "RentPrice= " + RentPrice + '\n' +
+                "PurchasePrice= " + PurchasePrice + '\n' +
+                "Quantity= " + Quantity + '\n' +
+                "Publisher= " + Publisher + '\n' +
+                "Borrow= " + Borrow + '\n' +
+                "Bought= " + Bought + '\n' +
+                "State= " + State + '\n' +
+                "Access= "+ Access ;
     }
 }

@@ -61,7 +61,7 @@ public class Teacher extends Person {
         {
             if (target.equals(Teacher.get(i).Name))
             {
-                return (Teacher.get(i).toString()+"\nNumber of Borrowed Books: " + Teacher.get(i).C_borrow + "\nNumber of Bought Books: " + Teacher.get(i).C_bought);
+                return (Teacher.get(i).toString()+"\nNumber of Borrowed Books= " + Teacher.get(i).C_borrow + "\nNumber of Bought Books= " + Teacher.get(i).C_bought);
             }
         }
         return "Teacher not found";

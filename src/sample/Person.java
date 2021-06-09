@@ -14,11 +14,9 @@ abstract class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "Name='" + Name + '\'' +
-                ", ID=" + ID +
-                ", E_mail='" + E_mail + '\'' +
-                ", Department='" + Department + '\'' +
-                '}';
+        return "Name= " + Name + '\n' +
+                "ID= " + ID + '\n' +
+                "E_mail= " + E_mail + '\n' +
+                "Department= " + Department;
     }
 }

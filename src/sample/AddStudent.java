@@ -13,8 +13,12 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class AddStudent {
+
+    Database myconnection = new Database();
 
     @FXML
     TextField T1;
@@ -33,8 +37,7 @@ public  void  start() throws IOException {
     stage.setTitle("Add Student");
     stage.show();
 }
-    public void Addstudent(ActionEvent actionEvent)
-    {
+    public void Addstudent(ActionEvent actionEvent) throws SQLException {
 
         Button B = (Button) actionEvent.getSource();
         String txt= B.getId();
@@ -46,7 +49,14 @@ public  void  start() throws IOException {
             students.ID=Integer.parseInt(T3.getText());
             students.E_mail=T4.getText();
             Global.student.add(students);
+
+            PreparedStatement ps = myconnection.openConnection().prepareStatement("insert into studentinfo (ide,Name  , Department, ID, E_mail,BooksBorrewed,BooksBoughted)  values('" + Global.c2 + "','" + T1.getText() + "','" + T2.getText() + "','" + T3.getText() + "','" + T4.getText() + "','" + students.C_borrow + "','" + students.C_bought + "')");
+            ps.executeUpdate();
+            ps.close();
+
             Global.c2++;
+
+
 
             T1.clear();
             T2.clear();

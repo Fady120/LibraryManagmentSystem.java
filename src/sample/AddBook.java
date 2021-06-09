@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -14,9 +15,16 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.sql.*;
+
+import java.net.URL;
+
 
 
 public class AddBook {
+
+    Database myconnection = new Database();
+    private PreparedStatement ps;
 
     @FXML
     TextField T1;
@@ -59,8 +67,9 @@ public class AddBook {
     }
 
 
-    public void NewBook(ActionEvent actionEvent)
-    {
+
+
+    public void NewBook(ActionEvent actionEvent) throws SQLException {
         Button b = (Button) actionEvent.getSource();
         String txtButton = b.getId();
         String Check = T1.getText();
@@ -70,11 +79,34 @@ public class AddBook {
             {
                 for (int i = 0; i < Global.c1; i++) {
                     if (Check.equals(Global.book.get(i).Name)) {
-                        JOptionPane.showMessageDialog(null, "This book is already in your inventory, " + T6.getText() + " copies of it was added succesfully ", "Display Message",
+                        JOptionPane.showMessageDialog(null, "This book is already in your inventory, " + T7.getText() + " copies of it was added succesfully ", "Display Message",
                                 JOptionPane.INFORMATION_MESSAGE);
-                        Global.book.get(i).Quantity += Integer.parseInt(T6.getText());
-                        Global.Wallet -= (Global.book.get(i).PurchasePrice * Global.book.get(i).Quantity);
+                        Global.book.get(i).Quantity += Integer.parseInt(T7.getText());
+                        Global.Wallet -= (Global.book.get(i).PurchasePrice * Integer.parseInt(T7.getText()));
                         flag = 1;
+
+
+                        String sqlUpdate = "UPDATE book "
+                                + "SET Quantity = ? "
+                                + "WHERE ide = ?";
+
+                        ps = myconnection.openConnection().prepareStatement(sqlUpdate);
+
+
+                        ps.setInt(1,Global.book.get(i).Quantity );
+                        ps.setInt(2, i);
+
+                        ps.executeUpdate();
+                         sqlUpdate = "UPDATE finance "
+                                + "SET Wallet = ? ";
+
+                        ps = myconnection.openConnection().prepareStatement(sqlUpdate);
+
+
+                        ps.setDouble(1,Global.Wallet);
+
+                        ps.executeUpdate();
+                        ps.close();
                     }
                 }
             }
@@ -91,14 +123,53 @@ public class AddBook {
                 B.RentPrice = Double.parseDouble(T6.getText());
                 B.Quantity = Integer.parseInt(T7.getText());
                 B.Publisher = T8.getText();
-                if (R1.isSelected() == true) B.State = 1;
-                else if (R2.isSelected() == true) B.State = 2;
-                else if (R3.isSelected() == true) B.State = 3;
-                if (R4.isSelected() == true) B.Access = 1;
-                else if (R5.isSelected() == true) B.Access = 2;
+                Global.Wallet =Global.Wallet - (B.Quantity * B.Price);
+
+                if (R1.isSelected())
+                {
+                    B.State = 1;
+                    R2.setSelected(false);
+                    R3.setSelected(false);
+                }
+
+                 else if (R2.isSelected())
+                {
+                    B.State = 2;
+                    R1.setSelected(false);
+                    R3.setSelected(false);
+                }
+
+                 else if (R3.isSelected())
+                {
+                    B.State = 3;
+                    R1.setSelected(false);
+                    R2.setSelected(false);
+                }
+
+                if (R4.isSelected())
+                {
+                    B.Access = 1;
+                    R5.setSelected(false);
+                }
+                 else if (R5.isSelected())
+                {
+                    B.Access = 2;
+                    R4.setSelected(false);
+                }
+
                 Global.book.add(B);
                 Global.Wallet -= (B.PurchasePrice * B.Quantity);
+                ps = myconnection.openConnection().prepareStatement("insert into book values('" + Global.c1 + "','" + T1.getText() + "','" + T2.getText() + "','" + T3.getText() + "','" + T4.getText() + "','" + T5.getText() + "','" + T6.getText() + "','" + Integer.parseInt( T7.getText()) + "','" + T8.getText() + "','"+B.State+"','"+B.Access+"','"+B.Borrow+"','"+B.Bought+"')");
+                ps.executeUpdate();
+                String sqlUpdate = "UPDATE finance "
+                        + "SET Wallet = ? ";
+                ps = myconnection.openConnection().prepareStatement(sqlUpdate);
+                ps.setDouble(1,Global.Wallet);
+                ps.executeUpdate();
+                ps.close();
                 Global.c1++;
+
+
 
             }
 

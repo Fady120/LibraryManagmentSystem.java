@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Library Management System" uuid="056fbcd1-579f-49e9-922d-98cd8ebfe527">
-      <driver-ref>sqlserver.ms</driver-ref>
+    <data-source source="LOCAL" name="librarymanagementsystem" uuid="8004377c-7ecc-45a9-8752-9a7bf1a1c545">
+      <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://DESKTOP-9CIKGL7\SQLEXPRESS;database=Library Management System;database=Library_Mangment_System</jdbc-url>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/librarymanagementsystem</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

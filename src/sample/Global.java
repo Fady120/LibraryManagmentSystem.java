@@ -10,4 +10,6 @@ public class Global {
     public static int c3 = 0;
     public static ArrayList<Teacher> teacher = new ArrayList<Teacher>();
     public static double Wallet;
+
+
 }

@@ -12,9 +12,15 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javax.swing.*;
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 
 public class Return {
+
+
+    Database myconnection = new Database();
+    private PreparedStatement ps;
 
     @FXML
     TextField T1;
@@ -36,7 +42,7 @@ public class Return {
         stage.show();
     }
 
-    public void ReturnThings(ActionEvent actionEvent) {
+    public void ReturnThings(ActionEvent actionEvent) throws SQLException {
         Button b = (Button) actionEvent.getSource();
         String txt = b.getId();
         if (txt.equals("Excute")) {
@@ -57,11 +63,45 @@ public class Return {
 
 
 
+                                String sqlUpdate = "UPDATE teacherinfo " + "SET BooksBorrewed = ? " + "WHERE ide = ?";
+                                ps = myconnection.openConnection().prepareStatement(sqlUpdate);
+                                ps.setInt(1,Global.student.get(i).C_borrow );
+                                ps.setInt(2, i);
+                                ps.executeUpdate();
+
+
                                 for (int z = 0; z < Global.c1; z++)
                                 {
                                     if (T2.getText().equals(Global.book.get(z).Name))
                                     {
                                         Global.book.get(z).Borrow--;
+                                        Global.book.get(z).Quantity++;
+
+                                        sqlUpdate = "UPDATE book "
+                                                + "SET BooksBorrowed = ?"
+                                                + "WHERE ide = ?";
+                                        ps = myconnection.openConnection().prepareStatement(sqlUpdate);
+                                        ps.setString(1,String.valueOf(Global.book.get(z).Borrow) );
+                                        ps.setInt(2, z);
+                                        ps.executeUpdate();
+
+
+                                        sqlUpdate = "UPDATE book "
+                                                + "SET Quantity = ?"
+                                                + "WHERE ide = ?";
+                                        ps = myconnection.openConnection().prepareStatement(sqlUpdate);
+                                        ps.setString(1,String.valueOf(Global.book.get(z).Quantity) );
+                                        ps.setInt(2, z);
+                                        ps.executeUpdate();
+
+
+                                        sqlUpdate = "DELETE from teacherBorrow "
+                                                + "WHERE ide = ?"
+                                                +"AND BookName = ?";
+                                        ps = myconnection.openConnection().prepareStatement(sqlUpdate);
+                                        ps.setString(1,String.valueOf(Global.book.get(z).Name) );
+                                        ps.setInt(2, i);
+                                        ps.executeUpdate();
 
 
                                         break;
@@ -96,12 +136,43 @@ public class Return {
                                 Global.student.get(i).Borrow.remove(j);
 
 
+                                String sqlUpdate = "UPDATE studentinfo " + "SET BooksBorrewed = ? " + "WHERE ide = ?";
+                                ps = myconnection.openConnection().prepareStatement(sqlUpdate);
+                                ps.setInt(1,Global.student.get(i).C_borrow );
+                                ps.setInt(2, i);
+                                ps.executeUpdate();
 
                                 for (int z = 0; z < Global.c1; z++)
                                 {
                                     if (T2.getText().equals(Global.book.get(z).Name))
                                     {
                                         Global.book.get(z).Borrow--;
+                                        Global.book.get(z).Quantity++;
+
+                                        sqlUpdate = "UPDATE book "
+                                                + "SET BooksBorrowed = ?"
+                                                + "WHERE ide = ?";
+                                        ps = myconnection.openConnection().prepareStatement(sqlUpdate);
+                                        ps.setString(1,String.valueOf(Global.book.get(z).Borrow) );
+                                        ps.setInt(2, z);
+                                        ps.executeUpdate();
+
+                                        sqlUpdate = "UPDATE book "
+                                                + "SET Quantity = ?"
+                                                + "WHERE ide = ?";
+                                        ps = myconnection.openConnection().prepareStatement(sqlUpdate);
+                                        ps.setString(1,String.valueOf(Global.book.get(z).Quantity) );
+                                        ps.setInt(2, z);
+                                        ps.executeUpdate();
+
+
+                                        sqlUpdate = "DELETE from studentBorrow "
+                                                + "WHERE ide = ?"
+                                                +"AND BookName = ?";
+                                        ps = myconnection.openConnection().prepareStatement(sqlUpdate);
+                                        ps.setString(1,String.valueOf(Global.book.get(z).Name) );
+                                        ps.setInt(2, i);
+                                        ps.executeUpdate();
 
 
                                         break;

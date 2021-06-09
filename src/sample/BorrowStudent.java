@@ -15,10 +15,14 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 
 public class BorrowStudent {
 
+    Database myconnection = new Database();
+    private PreparedStatement ps;
 
     @FXML
     TextField T1;
@@ -39,8 +43,7 @@ public class BorrowStudent {
 
 
 
-    public void borrowstudent(ActionEvent actionEvent)
-    {
+    public void borrowstudent(ActionEvent actionEvent) throws SQLException {
         Button B =(Button) actionEvent.getSource();
         String txt = B.getId();
 
@@ -107,7 +110,47 @@ public class BorrowStudent {
                         Global.student.get(j).Borrow.add(Global.book.get(i));
                         Global.student.get(j).C_borrow++;
                         Global.book.get(i).Borrow++;
+                        Global.book.get(i).Quantity--;
                         Global.Wallet += Global.book.get(i).RentPrice;
+
+
+                        ps = myconnection.openConnection().prepareStatement("insert into studentborrow values('" + j + "','" + Global.book.get(i).Name + "','" + Global.book.get(i).AuthorName + "','" + Global.book.get(i).PublicationDate + "','" + Global.book.get(i).Publisher + "','" + String.valueOf( Global.book.get(i).RentPrice )+ "','" + Global.book.get(i).State + "','" + Global.book.get(i).Access + "')");
+                        ps.executeUpdate();
+
+                        String sqlUpdate = "UPDATE studentinfo " + "SET BooksBorrewed = ? " + "WHERE ide = ?";
+                        ps = myconnection.openConnection().prepareStatement(sqlUpdate);
+                        ps.setInt(1,Global.student.get(j).C_borrow );
+                        ps.setInt(2, j);
+                        ps.executeUpdate();
+
+
+                        sqlUpdate = "UPDATE book "
+                                + "SET BooksBorrowed = ?"
+                                + "WHERE ide = ?";
+                        ps = myconnection.openConnection().prepareStatement(sqlUpdate);
+                        ps.setString(1,String.valueOf(Global.book.get(i).Borrow) );
+                        ps.setInt(2, i);
+                        ps.executeUpdate();
+
+
+                        sqlUpdate = "UPDATE book "
+                                + "SET Quantity = ?"
+                                + "WHERE ide = ?";
+                        ps = myconnection.openConnection().prepareStatement(sqlUpdate);
+                        ps.setString(1,String.valueOf(Global.book.get(i).Quantity));
+                        ps.setInt(2, i);
+                        ps.executeUpdate();
+
+
+                        sqlUpdate = "UPDATE finance "
+                                + "SET Wallet = ? ";
+                        ps = myconnection.openConnection().prepareStatement(sqlUpdate);
+                        ps.setDouble(1,Global.Wallet);
+                        ps.executeUpdate();
+
+                        ps.close();
+
+
 
                         JOptionPane.showMessageDialog(null, "Book borrowed successfully", "Display Message",
                                 JOptionPane.INFORMATION_MESSAGE);

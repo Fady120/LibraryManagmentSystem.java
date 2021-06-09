@@ -3,17 +3,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddStudent">
+<AnchorPane blendMode="DARKEN" prefHeight="400.0" prefWidth="737.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddStudent">
    <children>
-      <Button fx:id="Save" layoutX="171.0" layoutY="291.0" mnemonicParsing="false" onAction="#Addstudent" text="Save" />
-      <Button fx:id="Close" layoutX="361.0" layoutY="291.0" mnemonicParsing="false" onAction="#Addstudent" text="Close" />
+      <Button fx:id="Save" layoutX="151.0" layoutY="291.0" mnemonicParsing="false" onAction="#Addstudent" prefHeight="26.0" prefWidth="149.0" text="Save" />
+      <Button fx:id="Close" layoutX="447.0" layoutY="291.0" mnemonicParsing="false" onAction="#Addstudent" prefHeight="26.0" prefWidth="160.0" text="Close" />
       <TextField fx:id="T1" layoutX="123.0" layoutY="53.0" />
-      <TextField fx:id="T3" layoutX="381.0" layoutY="53.0" />
+      <TextField fx:id="T3" layoutX="550.0" layoutY="53.0" />
       <TextField fx:id="T2" layoutX="123.0" layoutY="131.0" />
-      <TextField fx:id="T4" layoutX="381.0" layoutY="131.0" />
+      <TextField fx:id="T4" layoutX="550.0" layoutY="131.0" />
       <Label layoutX="13.0" layoutY="57.0" text="Student's Name" />
       <Label layoutX="23.0" layoutY="135.0" text="Department" />
-      <Label layoutX="303.0" layoutY="57.0" text="ID Number" />
-      <Label layoutX="316.0" layoutY="135.0" text="E-mail" />
+      <Label layoutX="434.0" layoutY="57.0" text="ID Number" />
+      <Label layoutX="447.0" layoutY="135.0" text="E-mail" />
    </children>
 </AnchorPane>

@@ -53,7 +53,7 @@ public class Student extends Person {
         {
             if (target.equals(Student.get(i).Name))
             {
-                return (Student.get(i).toString() + "\nNumber of Borrowed Books: " + Student.get(i).C_borrow + "\nNumber of Boughted Books: " + Student.get(i).C_bought);
+                return (Student.get(i).toString() + "\nNumber of Borrowed Books= " + Student.get(i).C_borrow + "\nNumber of Boughted Books= " + Student.get(i).C_bought);
             }
         }
         return "Student not found";
