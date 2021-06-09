@@ -33,10 +33,10 @@ public class Return {
 
     }
 
-    public void radiobutton1 (){
+    public void radiobutton_1 (){
         if(R1.isSelected()) R2.setSelected(false);
     }
-    public void radiobutton2 (){
+    public void radiobutton_2 (){
         if(R2.isSelected()) R1.setSelected(false);
 
     }

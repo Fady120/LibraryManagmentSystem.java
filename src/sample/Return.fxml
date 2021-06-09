@@ -11,7 +11,7 @@
       <Label layoutX="85.0" layoutY="109.0" text="Book Name" />
       <TextField fx:id="T1" layoutX="256.0" layoutY="40.0" />
       <TextField fx:id="T2" layoutX="256.0" layoutY="105.0" />
-      <RadioButton fx:id="R1" layoutX="317.0" layoutY="200.0" mnemonicParsing="false" text="Teacher" onAction="#radiobutton1"/>
-      <RadioButton fx:id="R2" layoutX="461.0" layoutY="200.0" mnemonicParsing="false" text="Student" onAction="#radiobutton2" />
+      <RadioButton fx:id="R1" layoutX="317.0" layoutY="200.0" mnemonicParsing="false" text="Teacher" onAction="#radiobutton_1"/>
+      <RadioButton fx:id="R2" layoutX="461.0" layoutY="200.0" mnemonicParsing="false" text="Student" onAction="#radiobutton_2" />
    </children>
 </AnchorPane>
