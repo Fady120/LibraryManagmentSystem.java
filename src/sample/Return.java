@@ -32,9 +32,21 @@ public class Return {
     RadioButton R2;
 
     static Stage stage;
+    public void initialize (){
+        stage = new Stage();
+
+    }
+
+    public void radiobutton_1 (){
+        if(R1.isSelected()) R2.setSelected(false);
+    }
+    public void radiobutton_2 (){
+        if(R2.isSelected()) R1.setSelected(false);
+
+    }
 
     public void start() throws IOException {
-        stage = new Stage();
+        //stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("Return.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -44,7 +56,7 @@ public class Return {
 
     public void ReturnThings(ActionEvent actionEvent) throws SQLException {
         Button b = (Button) actionEvent.getSource();
-        String txt = b.getId();
+        String txt = b.getText();
         if (txt.equals("Excute")) {
 
             if (R1.isSelected())
@@ -196,10 +208,10 @@ public class Return {
         }
 
 
-        if(txt.equals("Close"))
-        {
-            stage.close();
-        }
+       // if(txt.equals("Close"))
+       // {
+        //   stage.close();
+       // }
 
 
     }
