@@ -16,6 +16,7 @@ import java.io.IOException;
 
 public class Return {
 
+
     @FXML
     TextField T1;
     @FXML
@@ -27,12 +28,26 @@ public class Return {
 
     static Stage stage;
 
-    public void start() throws IOException {
+    public void initialize (){
         stage = new Stage();
+
+    }
+
+    public void radiobutton1 (){
+        if(R1.isSelected()) R2.setSelected(false);
+    }
+    public void radiobutton2 (){
+        if(R2.isSelected()) R1.setSelected(false);
+
+    }
+
+    public void start() throws IOException {
+        //stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("Return.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Return");
+        //R1.setSelected(true);
         stage.show();
     }
 
@@ -43,6 +58,7 @@ public class Return {
 
             if (R1.isSelected())
             {
+                //R2.setSelected(false);
                 int flag = 0;
                 for (int i = 0; i < Global.c3; i++)
                 {
@@ -83,6 +99,7 @@ public class Return {
             }
             else if (R2.isSelected())
             {
+                //R1.setSelected(false);
                 int flag = 0;
                 for (int i = 0; i < Global.c2; i++)
                 {
