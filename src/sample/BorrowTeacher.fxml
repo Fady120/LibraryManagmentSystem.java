@@ -7,7 +7,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BorrowTeacher">
    <children>
       <Button onAction="#borrowteacher" fx:id="Excute" layoutX="190.0" layoutY="295.0" mnemonicParsing="false" text="Excute" />
-      <Button fx:id="Close" layoutX="348.0" layoutY="295.0" mnemonicParsing="false" text="Close" />
+      <Button fx:id="Close" layoutX="348.0" layoutY="295.0" mnemonicParsing="false" text="Close" onAction="#borrowteacher" />
       <Label layoutX="90.0" layoutY="62.0" text="Teacher Name" />
       <Label layoutX="90.0" layoutY="136.0" text="Book's Name" />
       <TextField fx:id="T1" layoutX="226.0" layoutY="58.0" />
