@@ -142,12 +142,15 @@ public class Return {
         }
 
 
-        if(txt.equals("Close"))
-        {
-            stage.close();
-        }
+      //  if(txt.equals("Close"))
+        //  {
+          //  stage.close();
+        //}
 
 
+    }
+    public void close(){
+        stage.close();
     }
 
 
