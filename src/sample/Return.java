@@ -53,7 +53,7 @@ public class Return {
 
     public void ReturnThings(ActionEvent actionEvent) {
         Button b = (Button) actionEvent.getSource();
-        String txt = b.getId();
+        String txt = b.getText();
         if (txt.equals("Excute")) {
 
             if (R1.isSelected())
@@ -142,14 +142,17 @@ public class Return {
         }
 
 
-        if(txt.equals("Close"))
+      else if(txt.equals("Close"))
         {
             stage.close();
         }
 
 
     }
-
+public void close()
+{
+    stage.close();
+}
 
 }
 
